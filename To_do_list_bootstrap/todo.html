@@ -1,0 +1,92 @@
+ <!-- ВСЕ ПРАВА ЗАЩИЩЕНЫ СЦУКА-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>To do List </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- header with jumbotron -->
+    <header class="justify-content-md-center">
+        <div class="jumbotron">
+          <h1 class="display-4">To Do List $$$</h1>
+          <p class="lead">Your to do list for today.</p>
+          <hr class="my-4">
+          <button class="btn btn-primary btn-lg" href="#" id="toggleList">Hide list</button> 
+        </div>
+      </header>
+ <!-- header with jumbotron ends -->
+
+  <!-- to do list -->
+    <section class="container-sm">
+
+        <div class="input-group mb-3">
+          <input type="text" class="addItemInput form-control" placeholder="Type what you need to do today.." aria-label="Type what you need to do today.." aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary addItemButton" type="button" id="button-addon2">Add</button>
+          </div>
+        </div>
+
+        <div class="list">
+          <ul class="list list-group">
+            <li class="list-group-item col px-md-5 p-3 bg-light text-uppercase">Buy condoms</li>
+            <li class="list-group-item col px-md-5 p-3 bg-light text-uppercase">Get the car</li>
+            <li class="list-group-item col px-md-5 p-3 bg-light text-uppercase">Order food</li>
+            <li class="list-group-item col px-md-5 p-3 bg-light text-uppercase">Invite girls</li>
+          </ul>
+      </div>
+
+    </section>
+    
+   <!-- to do list ends ;) -->
+
+    <script src="/js/app.js"></script>
+
+<!-- GOOGLE API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+    function start() {
+      // 2. Initialize the JavaScript client library.
+      gapi.client.init({
+        'apiKey': 'AIzaSyCfhF6wziSVR_gVCOdDKXMfkVPvsUzL750',
+        // clientId and scope are optional if auth is not required.
+        'clientId': '366275221667-keuv95h2n7emp0d80m93rjrgs7sqbf6g.apps.googleusercontent.com',
+        'scope': 'profile',
+      }).then(function() {
+        // 3. Initialize and make the API request.
+        return gapi.client.request({
+          'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+        })
+      }).then(function(response) {
+        console.log(response.result);
+      }, function(reason) {
+        console.log('Error: ' + reason.result.error.message);
+      });
+    };
+    // 1. Load the JavaScript client library.
+    gapi.load('client', start);
+    </script>
+<!-- GOOGLE API ENDS -->
+
+
+
+    
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
